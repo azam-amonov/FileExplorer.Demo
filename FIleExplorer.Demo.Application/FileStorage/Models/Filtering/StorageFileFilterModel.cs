@@ -2,7 +2,7 @@ using FIleExplorer.Demo.Application.Commons.Models.Filtering;
 
 namespace FIleExplorer.Demo.Application.FileStorage.Models.Filtering;
 
-public class StorageFilterFilterModel : FilterPagination
+public class StorageFileFilterModel : FilterPagination
 {
     public string DirectoryPath { get; set; } = string.Empty;
     
