@@ -1,6 +1,6 @@
 namespace FIleExplorer.Demo.Application.FileStorage.Models.Filtering;
 
-public class StorageDirectoryEntryFulterModel
+public class StorageDirectoryEntryFilterModel
 {
     public bool IncludeDirectories { get; set; }
     
