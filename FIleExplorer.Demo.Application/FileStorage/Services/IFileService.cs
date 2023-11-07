@@ -9,7 +9,7 @@ public interface IFileService
     
     ValueTask<StorageFile> GetFileByPathAsync(string path);
     
-    IEnumerable<StorageFileSummary> GetFileSummary(IEnumerable<StorageFile> files);
+    IEnumerable<StorageFilesSummary> GetFileSummary(IEnumerable<StorageFile> files);
     
     StorageFile GetFileType(string filePath);
 }
