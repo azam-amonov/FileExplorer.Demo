@@ -16,7 +16,7 @@ public class StorageDrive : IStorageEntry
     
     public long FreeSpace { get; set; }
     
-    public long UserSpace { get; set; }
+    public long UsedSpace { get; set; }
     
     public long UnavailableSpace { get; set; }
 

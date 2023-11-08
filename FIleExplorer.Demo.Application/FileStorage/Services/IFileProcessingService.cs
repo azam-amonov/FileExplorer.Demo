@@ -7,5 +7,5 @@ public interface IFileProcessingService
 {
     ValueTask<StorageFileFilterDataModel> GetFilterDataModelAsync(string directoryPath);
 
-    ValueTask<IList<StorageFile>> GetByFilterAsync(StorageFileFilterDataModel filterDataModel);
+    ValueTask<IList<StorageFile>> GetByFilterAsync(StorageFileFilterModel filterModel);
 }
