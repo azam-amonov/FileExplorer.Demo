@@ -7,11 +7,17 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Folder Include="Common\MapperProfiles\" />
       <Folder Include="Configuration\" />
       <Folder Include="Controllers\" />
-      <Folder Include="Models\DTOs\" />
       <Folder Include="wwwroot\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="AutoMapper" Version="12.0.1" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\FIleExplorer.Demo.Application\FIleExplorer.Demo.Application.csproj" />
     </ItemGroup>
 
 </Project>
