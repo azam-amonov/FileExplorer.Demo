@@ -8,7 +8,7 @@ public interface IDirectoryBroker
 
     IEnumerable<string> GetFilePath(string directoryPath);
     
-    IEnumerable<StorageDirectory> GetStorageDirectory(string directoryPath);
+    IEnumerable<StorageDirectory> GetStorageDirectories(string directoryPath);
     
     StorageDirectory GetByPathAsync(string directoryPath);
     

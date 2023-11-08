@@ -1,6 +1,8 @@
+using FIleExplorer.Demo.Application.Commons.Models.Filtering;
+
 namespace FIleExplorer.Demo.Application.FileStorage.Models.Filtering;
 
-public class StorageDirectoryEntryFilterModel
+public class StorageDirectoryEntryFilterModel : FilterPagination
 {
     public bool IncludeDirectories { get; set; }
     
