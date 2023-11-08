@@ -4,11 +4,11 @@ using FIleExplorer.Demo.Application.FileStorage.Models.Storage;
 
 namespace FileExplorer.Demo.Api.Common.MapperProfiles;
 
-public class DirectoryProfile : Profile
+public class StorageItemProfile : Profile
 {
-    public DirectoryProfile()
+    public StorageItemProfile()
     {
-        CreateMap<StorageDirectory, StorageDirectoryDto>();
-        CreateMap<StorageDirectoryDto, StorageDirectory>();
+        CreateMap<IStorageEntry, IStorageItemDto>();
+        CreateMap<IStorageItemDto, IStorageEntry>();
     }
 }
