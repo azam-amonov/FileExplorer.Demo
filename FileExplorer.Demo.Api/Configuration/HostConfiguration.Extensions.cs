@@ -70,5 +70,36 @@ public static partial class HostConfiguration
     }
 
     #endregion
+
+    #region Application configuration
+
+    private static WebApplication UseDevTools(this WebApplication app)
+    {
+        app.UseSwagger().UseSwaggerUI();
+
+        return app;
+    }
+
+    private static WebApplication UseCustomCors(this WebApplication app)
+    {
+        app.UseCors("CorsPolicy");
+        
+        return app;
+    }
+
+    private static WebApplication MapRoutes(this WebApplication app)
+    {
+        app.MapControllers();
+        
+        return app;
+    }
+
+    private static WebApplication UseFileStorage(this WebApplication app)
+    {
+        app.UseStaticFiles();
+        
+        return app;
+    }
+    #endregion
 }
     
