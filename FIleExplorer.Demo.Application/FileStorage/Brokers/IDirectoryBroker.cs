@@ -4,7 +4,7 @@ namespace FIleExplorer.Demo.Application.FileStorage.Brokers;
 
 public interface IDirectoryBroker
 {
-    IEnumerable<string> GetDirectoryPaths(string directoryPath);
+    IEnumerable<string> GetDirectoryPath(string directoryPath);
 
     IEnumerable<string> GetFilePath(string directoryPath);
     
