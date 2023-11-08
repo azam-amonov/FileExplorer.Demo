@@ -1,10 +1,11 @@
+using FIleExplorer.Demo.Application.FileStorage.Models.Filtering;
 using FIleExplorer.Demo.Application.FileStorage.Models.Storage;
 
 namespace FIleExplorer.Demo.Application.FileStorage.Models.Settings;
 
 public class FileExtensionsSetting
 {
-    public StorageEntryType FileType { get; set; }
+    public StorageFileType FileType { get; set; }
 
     public string DisplayName { get; set; } = string.Empty;
     
