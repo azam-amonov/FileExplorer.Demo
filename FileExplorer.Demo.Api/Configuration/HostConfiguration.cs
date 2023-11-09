@@ -1,15 +1,17 @@
 namespace FileExplorer.Demo.Api.Configuration;
 
-public static partial class HostConfiguration
+public static partial class  HostConfiguration
 {
     public static ValueTask<WebApplicationBuilder> ConfigureAsync(this WebApplicationBuilder builder)
     {
         builder
-            .AddMapping()
-            .AddBrokers()
-            .AddFileStorageInfrastructure()
-            .AddDevTools()
-            .AddCustomCors();
+                        .AddMapping()
+                        .AddBrokers()
+                        .AddFileStorageInfrastructure()
+                        .AddDevTools()
+                        .AddRestExposers()
+                        .AddCustomCors();
+
         return new ValueTask<WebApplicationBuilder>(builder);
     }
 
@@ -19,7 +21,7 @@ public static partial class HostConfiguration
         app.MapRoutes();
         app.UseCustomCors();
         app.UseStaticFiles();
-       
+
         return new ValueTask<WebApplication>(app);
     }
 }
