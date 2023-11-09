@@ -9,16 +9,16 @@ namespace FileExplorer.Demo.Api.Configuration;
 
 public static partial class HostConfiguration
 {
-    #region Builder Configuration
+    #region Builder Configurations
 
     private static WebApplicationBuilder AddMapping(this WebApplicationBuilder builder)
     {
         var assemblies = Assembly.GetExecutingAssembly().GetReferencedAssemblies().Select(Assembly.Load).ToList();
-        
+
         assemblies.Add(Assembly.GetExecutingAssembly());
 
         builder.Services.AddAutoMapper(assemblies);
-        
+
         return builder;
     }
 
@@ -29,14 +29,14 @@ public static partial class HostConfiguration
             .AddSingleton<IDriverBroker, DriverBroker>()
             .AddSingleton<IDirectoryBroker, DirectoryBroker>()
             .AddSingleton<IFileBroker, FileBroker>();
-        
+
         return builder;
     }
 
     private static WebApplicationBuilder AddFileStorageInfrastructure(this WebApplicationBuilder builder)
     {
         builder.Services.Configure<FileFilterSettings>(builder.Configuration.GetSection(nameof(FileFilterSettings)));
-        builder.Services.Configure<FileStorageSettings>(builder.Configuration.GetSection(nameof(FileFilterSettings)));
+        builder.Services.Configure<FileStorageSettings>(builder.Configuration.GetSection(nameof(FileStorageSettings)));
 
         builder
             .Services
@@ -55,7 +55,15 @@ public static partial class HostConfiguration
     private static WebApplicationBuilder AddDevTools(this WebApplicationBuilder builder)
     {
         builder.Services.AddSwaggerGen().AddEndpointsApiExplorer();
-        
+
+        return builder;
+    }
+
+    private static WebApplicationBuilder AddRestExposers(this WebApplicationBuilder builder)
+    {
+        builder.Services.AddControllers().AddNewtonsoftJson();
+        builder.Services.AddRouting(options => options.LowercaseUrls = true);
+
         return builder;
     }
 
@@ -65,13 +73,13 @@ public static partial class HostConfiguration
         {
             options.AddPolicy("CorsPolicy", policyBuilder => { policyBuilder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader(); });
         });
-        
+
         return builder;
     }
 
     #endregion
 
-    #region Application configuration
+    #region Application Configurations
 
     private static WebApplication UseDevTools(this WebApplication app)
     {
@@ -83,23 +91,23 @@ public static partial class HostConfiguration
     private static WebApplication UseCustomCors(this WebApplication app)
     {
         app.UseCors("CorsPolicy");
-        
+
         return app;
     }
 
     private static WebApplication MapRoutes(this WebApplication app)
     {
         app.MapControllers();
-        
+
         return app;
     }
 
     private static WebApplication UseFileStorage(this WebApplication app)
     {
         app.UseStaticFiles();
-        
+
         return app;
     }
+
     #endregion
 }
-    
